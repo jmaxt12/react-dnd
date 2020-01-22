@@ -6,34 +6,31 @@ import Class from '../../components/Characters/Class/Class';
 import Spells from '../../components/Characters/Spells/Spells';
 import Features from '../../components/Characters/Features/Features';
 
-const raceInfo = "http://www.dnd5eapi.co/api/races"
-const classInfo = "http://www.dnd5eapi.co/api/classes"
-const spellInfo = "http://www.dnd5eapi.co/api/spells"
-const featureInfo = "http://www.dnd5eapi.co/api/features"
+const api = "http://www.dnd5eapi.co/api/"
 
 class Dnd extends Component {
     state = {
         races: [],
         classes: [],
         spells: [],
-        features: []
+        features: [],
     }
 
     
     componentDidMount () {
-        axios.get( raceInfo, classInfo )
+        axios.get( api + "races" )
             .then(response => {
                 this.setState({races: response.data.results})
             })
-        axios.get( classInfo )
+        axios.get( api + "classes" )
             .then( response => {
                 this.setState({classes: response.data.results})
             })
-        axios.get( spellInfo )
+        axios.get( api + "spells" )
             .then( response => {
                 this.setState({spells: response.data.results})
             })
-        axios.get( featureInfo )
+        axios.get( api + "features" )
             .then( response => {
                 this.setState({features: response.data.results})
             })
@@ -71,7 +68,7 @@ class Dnd extends Component {
                         
         return(
             <div>
-                <section>
+                <section onClick >
                     <h1>Races</h1>
                     {races}
                 </section>
