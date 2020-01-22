@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>STARTING POINT</p>
+        <h1>Dungeons & Dragons</h1>
         <Dnd />
       </div>
     );
